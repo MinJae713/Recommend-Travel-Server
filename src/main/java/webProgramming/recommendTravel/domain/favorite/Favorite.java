@@ -28,6 +28,10 @@ public class Favorite {
     private User user;
 
     public Favorite(Long zzimID, String destinationName, String imgUrl, Optional<User> user) {
+        this.zzimID = zzimID;
+        this.destinationName = destinationName;
+        this.imgUrl = imgUrl;
+        this.user = user.orElse(null);
     }
 
     public FavoriteDTORes getFavoriteDTO() {

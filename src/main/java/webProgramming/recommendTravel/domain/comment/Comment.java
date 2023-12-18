@@ -9,6 +9,7 @@ import webProgramming.recommendTravel.domain.communitypost.CommunityPost;
 import webProgramming.recommendTravel.domain.user.User;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Entity
 @AllArgsConstructor
@@ -33,4 +34,7 @@ public class Comment {
     @Column(nullable = false)
 //    @Column
     private Date timestamp;
+
+    public Comment(Long commentId, CommunityPost checkPost, Optional<User> user, String content, Date currentDate) {
+    }
 }

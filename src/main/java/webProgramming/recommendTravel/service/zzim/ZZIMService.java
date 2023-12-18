@@ -51,8 +51,8 @@ public class ZZIMService {
         List<Favorite> favorites = favoriteRepository.findAllByUser(user); // 사용자의 찜목록 조회
 //        if (favorites.size() == 0)
 //            throw new IllegalArgumentException("사용자가 찜한 도시가 아무곳도 없어유");
-        Destination destination = destinationRepository.findByMbti(user.orElse(null).getMbti_type());
+        Optional<Destination> destination = destinationRepository.findByMbti(user.orElse(null).getMbti_type());
         // 사용자 mbti 따른 Destination 조회
-        return destination.getDestDTO(favorites); // destination과 favorites로 DTO 반환
+        return destination.orElse(null).getDestDTO(favorites); // destination과 favorites로 DTO 반환
     }
 }

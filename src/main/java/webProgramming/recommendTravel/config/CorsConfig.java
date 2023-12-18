@@ -12,7 +12,7 @@ public class CorsConfig implements WebMvcConfigurer {
         registry.addMapping("/*")
                 .allowedOrigins("http://localhost:3000") // 프론트엔드 서버의 정확한 URL
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("")
+                .allowedHeaders("");
 
     }
 }

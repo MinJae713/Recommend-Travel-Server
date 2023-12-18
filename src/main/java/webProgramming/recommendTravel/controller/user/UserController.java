@@ -13,9 +13,9 @@ import webProgramming.recommendTravel.service.user.UserService;
 
 import java.util.Map;
 
-//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/recommand-travel")
+@RequestMapping("/recommend-travel")
 public class UserController {
     // 아이디 비번 api 여기서 받음
 

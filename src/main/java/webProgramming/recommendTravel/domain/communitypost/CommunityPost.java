@@ -8,6 +8,7 @@ import lombok.ToString;
 import webProgramming.recommendTravel.domain.user.User;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Entity
 @AllArgsConstructor
@@ -34,4 +35,7 @@ public class CommunityPost {
     @Column(nullable = false)
 //    @Column
     private Date timestamp;
+
+    public CommunityPost(Long postId, Optional<User> tempuser, String mbtiType, String title, String content, Date currentDate) {
+    }
 }

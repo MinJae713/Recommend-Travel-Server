@@ -11,10 +11,7 @@ import webProgramming.recommendTravel.repository.comment.CommentRepository;
 import webProgramming.recommendTravel.repository.communitypost.CommunityPostRepository;
 import webProgramming.recommendTravel.repository.user.UserRepository;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -36,7 +33,7 @@ public class CommunityService
     {
         String userid = TokenParser.extractUserIdFromToken(token);
 
-        User tempuser = userRepository.findByuserid(userid);
+        Optional<User> tempuser = userRepository.findByUserid(userid);
 
         Date currentDate = new Date();
 
@@ -44,7 +41,7 @@ public class CommunityService
             throw new RuntimeException("User not found");
         }
 
-        CommunityPost newPost = new CommunityPost(null, tempuser, tempuser.getMbti_type(), title, content, currentDate);
+        CommunityPost newPost = new CommunityPost(null, tempuser, tempuser.orElse(null).getMbti_type(), title, content, currentDate);
         communityPostRepository.save(newPost);
         return newPost;
 }
@@ -63,7 +60,7 @@ public class CommunityService
         }
         if(checkUser)
         {
-            User user = userRepository.findByuserid(userid);
+            Optional<User> user = userRepository.findByUserid(userid);
             CommunityPost checkPost = communityPostRepository.findBypostId(postId);
             Date currentDate = new Date();;
             if (checkPost == null) { throw new RuntimeException("null Post"); }
