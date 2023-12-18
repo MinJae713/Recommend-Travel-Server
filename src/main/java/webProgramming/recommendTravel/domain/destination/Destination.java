@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
 import webProgramming.recommendTravel.domain.favorite.Favorite;
 import webProgramming.recommendTravel.dto.destination.request.DestinationDTOReq;
 import webProgramming.recommendTravel.dto.destination.response.DestinationDTORes;
@@ -19,6 +20,7 @@ import java.util.List;
 @Getter
 @ToString
 public class Destination {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -49,6 +51,7 @@ public class Destination {
 
     @Transient // 데이터베이스에 저장되지 않는 필드
     private List<RecommendedDestination> recommendedDestinations;
+
 
     public DestinationDTORes getDestDTO(List<Favorite> favorites) {
         List<RecommendDestination> recomDests = new ArrayList<RecommendDestination>();

@@ -8,6 +8,8 @@ import lombok.ToString;
 import webProgramming.recommendTravel.domain.user.User;
 import webProgramming.recommendTravel.dto.userfavorite.response.FavoriteDTORes;
 
+import java.util.Optional;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,6 +26,9 @@ public class Favorite {
     @ManyToOne
     @JoinColumn(name = "cid")
     private User user;
+
+    public Favorite(Long zzimID, String destinationName, String imgUrl, Optional<User> user) {
+    }
 
     public FavoriteDTORes getFavoriteDTO() {
         return new FavoriteDTORes(user.getUserid(), destinationName, imgUrl);

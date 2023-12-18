@@ -1,6 +1,7 @@
 package webProgramming.recommendTravel.service.user;
 
 import org.springframework.stereotype.Service;
+
 import webProgramming.recommendTravel.domain.communitypost.CommunityPost;
 import webProgramming.recommendTravel.domain.user.User;
 import webProgramming.recommendTravel.domain.userfavorite.UserFavorite;
@@ -25,6 +26,7 @@ public class UserService {
         user.setMbti_type(mbtiType);
         return userRepository.save(user);
     }
+
 
     public User loginUser(String userid, String password) {
         Optional<User> optionalUser = userRepository.findByUserid(userid);

@@ -5,6 +5,7 @@ import webProgramming.recommendTravel.domain.communitypost.CommunityPost;
 import webProgramming.recommendTravel.domain.user.User;
 import webProgramming.recommendTravel.repository.comment.CommentRepository;
 import webProgramming.recommendTravel.repository.communitypost.CommunityPostRepository;
+import webProgramming.recommendTravel.repository.favorite.FavoriteRepository;
 import webProgramming.recommendTravel.repository.user.UserRepository;
 import webProgramming.recommendTravel.repository.userfavorite.UserFavoriteRepository;
 
@@ -15,17 +16,17 @@ public class DeleteService {
     private final UserRepository userRepository;
     private final CommunityPostRepository communityPostRepository;
     private final CommentRepository commentRepository;
-    private final UserFavoriteRepository userFavoriteRepository;
+    private final FavoriteRepository favoriteRepository;
 
     public DeleteService(
             UserRepository userRepository,
             CommunityPostRepository communityPostRepository,
             CommentRepository commentRepository,
-            UserFavoriteRepository userFavoriteRepository) {
+            FavoriteRepository favoriteRepository) {
         this.userRepository = userRepository;
         this.communityPostRepository = communityPostRepository;
         this.commentRepository = commentRepository;
-        this.userFavoriteRepository = userFavoriteRepository;
+        this.favoriteRepository = favoriteRepository;
     }
 
     public void deleteUser(String userid) {
@@ -35,8 +36,7 @@ public class DeleteService {
             User user = optionalUser.get();
             // 여기에서 관련된 데이터 삭제 또는 처리 수행
 
-
-            // 1. Delete User's Community Posts and associated Comments
+            // 1. 게시글 및 댓글 삭제
             List<CommunityPost> communityPosts = communityPostRepository.findByUser(user);
             for (CommunityPost post : communityPosts) {
                 // Delete associated comments
@@ -44,8 +44,8 @@ public class DeleteService {
             }
             communityPostRepository.deleteByUser(user);
 
-            // 2. Delete User Favorites
-            userFavoriteRepository.deleteByUser(user);
+            // 2. 찜 삭제
+            favoriteRepository.deleteByUser(user);
 
             // 3. 사용자 정보 삭제
             userRepository.delete(user);

@@ -3,6 +3,7 @@ package webProgramming.recommendTravel.common;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class TokenParser {
     public static String extractUserIdFromToken(String token) {
         // "|"을 기준으로 토큰과 사용자 ID를 분리
@@ -26,4 +27,5 @@ public class TokenParser {
             throw new IllegalArgumentException("토큰 형식이 올바르지 않습니다.");
         }
     }
+
 }

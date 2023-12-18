@@ -21,6 +21,7 @@ public class CommunityPost {
     @ManyToOne
     @JoinColumn(name = "cid")
     private User user;
+
     @Column(nullable = false, length = 4)
 //    @Column
     private String mbti_type;

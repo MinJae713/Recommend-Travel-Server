@@ -2,6 +2,7 @@ package webProgramming.recommendTravel.controller.zzim;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ public class ZZIMController {
     // 찜 api 여기서 받음
     @Autowired
     private ZZIMService zzimService;
+
     @PostMapping("/add-to-favorites")
     public ResponseEntity<FavoriteDTORes> doZZim(@RequestBody FavoriteDTOReq dto) {
         log.info("리퀘 : " + dto.toString());

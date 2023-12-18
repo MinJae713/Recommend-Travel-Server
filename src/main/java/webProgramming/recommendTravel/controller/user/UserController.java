@@ -1,6 +1,7 @@
 package webProgramming.recommendTravel.controller.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ public class UserController {
     // 아이디 비번 api 여기서 받음
 
     private final UserService userService;
+
     private final DeleteService deleteService;
     private final AccessTokenGenerator accessTokenGenerator = null;
 

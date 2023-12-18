@@ -8,6 +8,7 @@ import lombok.ToString;
 import webProgramming.recommendTravel.domain.destination.Destination;
 import webProgramming.recommendTravel.domain.userfavorite.UserFavorite;
 
+
 public class FavoriteDestination {
     // 미사용
 }
